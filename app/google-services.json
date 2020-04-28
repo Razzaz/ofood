@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "936449048275",
+    "firebase_url": "https://ofood-ddb4f.firebaseio.com",
+    "project_id": "ofood-ddb4f",
+    "storage_bucket": "ofood-ddb4f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936449048275:android:7906149d98c6e10cf25e26",
+        "android_client_info": {
+          "package_name": "com.example.ofood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936449048275-cfb26f6j0gm1h6ul22vjk6qmei6cal68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsT-BBlBZUPeQzojbygC0PfL531M7wyis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936449048275-cfb26f6j0gm1h6ul22vjk6qmei6cal68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
