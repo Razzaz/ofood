@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cnb_unselectedColor="#fff">
+    app:cnb_unselectedColor="#2ecc71">
 
     <item
         android:id="@+id/nav_store"
         android:icon="@drawable/ic_store"
         android:title="Store"
-        app:cnb_backgroundColor="@color/colorPrimaryDark"
+        app:cnb_backgroundColor="#2ecc71"
         app:cnb_iconColor="#fff"
         app:cnb_textColor="#fff" />
 
@@ -15,15 +15,15 @@
         android:id="@+id/nav_cart"
         android:icon="@drawable/ic_cart"
         android:title="Cart"
-        app:cnb_backgroundColor="@color/colorPrimaryDark"
+        app:cnb_backgroundColor="#2ecc71"
         app:cnb_iconColor="#fff"
         app:cnb_textColor="#fff" />
 
     <item
         android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_settings"
-        android:title="Settings"
-        app:cnb_backgroundColor="@color/colorPrimaryDark"
+        android:icon="@drawable/ic_account"
+        android:title="Profile"
+        app:cnb_backgroundColor="#2ecc71"
         app:cnb_iconColor="#fff"
         app:cnb_textColor="#fff" />
 </menu>

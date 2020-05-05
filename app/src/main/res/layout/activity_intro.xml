@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffff"
+    android:background="#2ecc71"
     tools:context=".IntroActivity">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#F6F7FB"
         android:fontFamily="@font/circularstdbold"
         android:text="Get Started!"
         android:textAllCaps="false"
