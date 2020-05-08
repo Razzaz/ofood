@@ -35,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
-
     }
 
     public void setTransparentStatusBarOnly(Activity activity) {
