@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#ffff"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:background="#FFFF"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
 
     <ImageView
         android:id="@+id/imageView11"
@@ -17,6 +18,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_store1" />
+        app:srcCompat="@drawable/ic_fullprofile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -29,6 +30,25 @@ public class SettingsFragment extends Fragment {
 //                getActivity().finish();
 //            }
 //        });
+
+        TextView buttonProfile = view.findViewById(R.id.buttonProfile);
+        buttonProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Objects.requireNonNull(getActivity()).getApplicationContext(), ProfileActivity.class));
+                getActivity();
+            }
+        });
+
+        TextView buttonSupport = view.findViewById(R.id.buttonSupport);
+        buttonSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Objects.requireNonNull(getActivity()).getApplicationContext(), SupportActivity.class));
+                getActivity();
+            }
+        });
+
         return view;
     }
 }

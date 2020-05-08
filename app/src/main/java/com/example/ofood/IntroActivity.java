@@ -24,8 +24,6 @@ public class IntroActivity extends AppCompatActivity {
     int currentPageCounter = 0;
     int customPosition = 0;
 
-    private TextView btnGetStarted;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +37,7 @@ public class IntroActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_intro);
 
-        btnGetStarted = findViewById(R.id.intro_getStarted);
+        TextView btnGetStarted = findViewById(R.id.intro_getStarted);
 
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
