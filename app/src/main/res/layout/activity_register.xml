@@ -40,10 +40,61 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:fontFamily="@font/circularstdbold"
-        android:text="Sign In"
+        android:text="Have an account?"
         android:textColor="#A6BCD0"
         app:layout_constraintEnd_toEndOf="@+id/imageView11"
         app:layout_constraintStart_toStartOf="@+id/imageView11"
         app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="192dp"
+        android:layout_height="47dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:fontFamily="@font/circularstdmedium"
+        android:inputType="textPersonName"
+        android:text="name"
+        android:textColor="#A6BCD0"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="0.379" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="192dp"
+        android:layout_height="47dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:fontFamily="@font/circularstdmedium"
+        android:inputType="textEmailAddress"
+        android:text="email"
+        android:textColor="#A6BCD0"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="0.476" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="192dp"
+        android:layout_height="47dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:fontFamily="@font/circularstdmedium"
+        android:inputType="textPassword"
+        android:text="password"
+        android:textColor="#A6BCD0"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="0.577" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

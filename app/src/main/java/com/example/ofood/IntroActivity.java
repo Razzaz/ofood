@@ -1,7 +1,6 @@
 package com.example.ofood;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
@@ -13,11 +12,16 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class IntroActivity extends AppCompatActivity {
+
+    public static Activity introActivity;
+    FirebaseAuth fAuth;
 
     ViewPager viewPager;
     int[] images = {R.drawable.ic_onboarding_0, R.drawable.ic_onboarding_1};
@@ -37,12 +41,21 @@ public class IntroActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_intro);
 
+        fAuth = FirebaseAuth.getInstance();
+        if(fAuth.getCurrentUser() != null){
+            boolean emailVerified = FirebaseAuth.getInstance().getCurrentUser().isEmailVerified();
+            if(emailVerified) {
+                startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+                finish();
+            }
+        }
+
         TextView btnGetStarted = findViewById(R.id.intro_getStarted);
 
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
             }
         });
