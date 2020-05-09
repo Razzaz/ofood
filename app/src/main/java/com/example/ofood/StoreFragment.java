@@ -20,16 +20,15 @@ public class StoreFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //startActivity(new Intent(Objects.requireNonNull(getActivity()).getApplicationContext(), MoveActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
         View view =  inflater.inflate(R.layout.fragment_store, container, false);
-//        ImageView buttonCheck = view.findViewById(R.id.button_check);
-//        buttonCheck.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(Objects.requireNonNull(getActivity()).getApplicationContext(), CheckActivity.class));
-//                getActivity().finish();
-//            }
-//        });
+        ImageView gotoStore = view.findViewById(R.id.gotoStore);
+        gotoStore.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Objects.requireNonNull(getActivity()).getApplicationContext(), StoreActivity.class));
+                //getActivity().finish();
+            }
+        });
         return view;
     }
 }
