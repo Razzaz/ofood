@@ -1,15 +1,21 @@
 package com.example.ofood;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -17,35 +23,41 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-public class ProfileActivity extends AppCompatActivity {
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
-    private TextView sFullname;
-    private TextView sAddress;
-    private TextView sEmail;
+public class OrderHistoryActivity extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private String userID = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-    private DocumentReference profile = db.collection("UsersData").document(userID);
+    private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTransparentStatusBarOnly(ProfileActivity.this);
+
+        setTransparentStatusBarOnly(OrderHistoryActivity.this);
+
         try
         {
             Objects.requireNonNull(this.getSupportActionBar()).hide();
         }
         catch (NullPointerException ignored){}
 
-        setContentView(R.layout.activity_profile);
 
-        sFullname = findViewById(R.id.fullname);
-        sEmail = findViewById(R.id.email);
-        sAddress = findViewById(R.id.address);
+        setContentView(R.layout.activity_order_history);
 
-        profile.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        TextView orderId = findViewById(R.id.order_id);
+        final TextView payment = findViewById(R.id.payment);
+        final TextView status = findViewById(R.id.status);
+        Button home = findViewById(R.id.home);
+
+        String id = db.collection("UsersData").document(userID).collection("Orders").document().getId();
+        orderId.setText(userID);
+
+        db.collection("UsersData").document(userID).collection("Orders").document(id).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {
@@ -53,18 +65,20 @@ public class ProfileActivity extends AppCompatActivity {
                 }
 
                 if (documentSnapshot != null && documentSnapshot.exists()) {
-                    String fullName = documentSnapshot.getString("Name");
-                    String email = documentSnapshot.getString("Email");
-                    String address = documentSnapshot.getString("Address");
-                    sFullname.setText(fullName);
-                    sEmail.setText(email);
-                    sAddress.setText(address);
+                    String payment_sum = documentSnapshot.getString("Price");
+                    String status_id = documentSnapshot.getString("Status");
 
-                } else {
-                    sFullname.setText("");
-                    sEmail.setText("");
-                    sAddress.setText("");
+                    payment.setText(payment_sum);
+                    status.setText(status_id);
                 }
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+                finish();
             }
         });
 

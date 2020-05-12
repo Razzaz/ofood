@@ -42,6 +42,15 @@ public class SettingsFragment extends Fragment {
             }
         });
 
+        TextView buttonOrderHistory = view.findViewById(R.id.buttonOrderHistory);
+        buttonOrderHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Objects.requireNonNull(getActivity()).getApplicationContext(), OrderHistoryActivity.class));
+                getActivity();
+            }
+        });
+
         TextView buttonLogout = view.findViewById(R.id.buttonSignOut);
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override

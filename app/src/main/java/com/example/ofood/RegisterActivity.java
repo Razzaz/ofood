@@ -130,6 +130,38 @@ public class RegisterActivity extends AppCompatActivity {
                                                         Log.w(TAG, "Error!", e);
                                                     }
                                                 });
+                                        Map<String, Object> item = new HashMap<>();
+                                        item.put("Registered","0");
+                                        db.collection("Cart").document(userID)
+                                                .set(item)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Log.d(TAG, "Added to Cart.");
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Log.w(TAG, "Error adding to Cart! Try again.", e);
+                                                    }
+                                                });
+                                        String id = db.collection("UsersData").document(userID).collection("Orders").document().getId();
+                                        db.collection("UsersData").document(userID).collection("Orders").document(id)
+                                                .set(item)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Log.d(TAG, "Added to Orders.");
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Log.w(TAG, "Error adding to Orders! Try again.", e);
+                                                    }
+                                                });
+
                                         startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                                         finish();
                                     }else{

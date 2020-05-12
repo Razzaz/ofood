@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FFFF"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    android:background="#ffff"
+    tools:context=".OrderHistoryActivity">
 
     <ImageView
         android:id="@+id/imageView11"
@@ -18,62 +18,61 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_fullprofile"/>
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
-        android:layout_width="267dp"
-        android:layout_height="215dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="@+id/imageView11"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.297"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/profile" />
+        app:srcCompat="@drawable/ic_order"/>
 
     <TextView
-        android:id="@+id/fullname"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/order_id"
+        android:layout_width="206dp"
+        android:layout_height="21dp"
         android:fontFamily="@font/circularstdbold"
         android:gravity="start"
-        android:text="John Doe"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="@+id/imageView11"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.675" />
-
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/circularstdbold"
-        android:gravity="start"
-        android:text="Jakarta, Indonesia"
+        android:text="893812383"
         app:layout_constraintBottom_toBottomOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="@+id/imageView11"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/imageView11"
         app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.76" />
+        app:layout_constraintVertical_bias="0.573" />
 
     <TextView
-        android:id="@+id/email"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/payment"
+        android:layout_width="206dp"
+        android:layout_height="21dp"
         android:fontFamily="@font/circularstdbold"
         android:gravity="start"
-        android:text="johndoe@mail.com"
+        android:text="100000"
         app:layout_constraintBottom_toBottomOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="@+id/imageView11"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/imageView11"
         app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.836" />
+        app:layout_constraintVertical_bias="0.66" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="206dp"
+        android:layout_height="21dp"
+        android:fontFamily="@font/circularstdbold"
+        android:gravity="start"
+        android:text="Ongoing"
+        android:textColor="#47E14D"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintHorizontal_bias="0.658"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="0.709" />
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="0.959" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
