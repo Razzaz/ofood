@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,11 +29,14 @@ import java.util.Map;
 import java.util.Objects;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
+import static com.example.ofood.CheckOutActivity.SHARED_PREFS;
+import static com.example.ofood.CheckOutActivity.orderState;
 
 public class OrderHistoryActivity extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private String idOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +58,13 @@ public class OrderHistoryActivity extends AppCompatActivity {
         final TextView status = findViewById(R.id.status);
         Button home = findViewById(R.id.home);
 
-        String id = db.collection("UsersData").document(userID).collection("Orders").document().getId();
-        orderId.setText(userID);
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        idOrder = sharedPreferences.getString(orderState, null);
 
-        db.collection("UsersData").document(userID).collection("Orders").document(id).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        //String id = db.collection("UsersData").document(userID).collection("Orders").document().getId();
+        orderId.setText(idOrder);
+
+        db.collection("UsersData").document(userID).collection("Orders").document(idOrder).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {
@@ -65,10 +72,10 @@ public class OrderHistoryActivity extends AppCompatActivity {
                 }
 
                 if (documentSnapshot != null && documentSnapshot.exists()) {
-                    String payment_sum = documentSnapshot.getString("Price");
+                    long payment_sum = documentSnapshot.getLong("Price");
                     String status_id = documentSnapshot.getString("Status");
 
-                    payment.setText(payment_sum);
+                    payment.setText(payment_sum+"");
                     status.setText(status_id);
                 }
             }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -37,6 +38,10 @@ import java.util.Objects;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class CheckOutActivity extends AppCompatActivity {
+
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String orderState = "orderId";
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private DocumentReference dbPrice = db.collection("Cart").document(userID);
@@ -94,6 +99,12 @@ public class CheckOutActivity extends AppCompatActivity {
                                             }
                                         }
                                         String id = db.collection("UsersData").document(userID).collection("Orders").document().getId();
+
+                                        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = sharedPref.edit();
+                                        editor.putString(orderState, id);
+                                        editor.apply();
+
                                         Map<String, Object> invoice_stat = new HashMap<>();
                                         invoice_stat.put("Status", "Ongoing");
                                         db.collection("UsersData").document(userID).collection("Orders").document(id)
